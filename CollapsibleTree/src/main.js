@@ -24,7 +24,7 @@ let activeNode;
 let loading;
 
 let tree = d3.layout.tree().size([height, width])
-  .sort(u.nameAscending);
+  .sort(u.nodeSorter);
 const diagonal = d3.svg.diagonal().projection((d) => [d.y, d.x]);
 let svg;
 
@@ -595,7 +595,7 @@ const eventHandler = {
       width = document.documentElement.clientWidth - conf.W_REDUCE;
       height = document.documentElement.clientHeight - conf.H_REDUCE;
       tree = d3.layout.tree().size([height, width])
-        .sort(u.nameAscending);
+        .sort(u.nodeSorter);
       d3.select('#svg-tree')
         .attr('width', width)
         .attr('height', height);

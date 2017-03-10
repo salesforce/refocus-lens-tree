@@ -89,6 +89,52 @@ function childrenize(n) {
   return n;
 } // childrenize
 
+function nodeSorter(a, b) {
+  if (a.aspect && b.aspect) {
+    return aspectSorter(a.aspect, b.aspect);
+  } else {
+    return nameAscending(a, b);
+  }
+} // nodeSorter
+
+function aspectSorter(a, b) {
+  let ret;
+  if (a.rank != null && b.rank != null) {
+    ret = a.rank - b.rank;
+  } else if (a.rank == null && b.rank == null) {
+    ret = 0;
+  } else if (a.rank == null && b.rank != null) {
+    ret = 1;
+  } else if (a.rank != null && b.rank == null) {
+    ret = -1;
+  }
+
+  if (ret === 0) {
+    ret = nameAscending(a, b);
+  }
+
+  return ret;
+} // aspectSorter
+
+/**
+ * Use this as the d3.partition sort comparator function. It will sort by
+ * subject or sample name in ascending order, case-insensitive.
+ *
+ * @param {Object} a - the first node to compare
+ * @param {Object} b - the second node to compare
+ * @returns {Integer} - positive integer if a > b, negative integer if
+ *  a < b, 0 if a === b
+ */
+function nameAscending(a, b) {
+  if (a && a.name && b && b.name) {
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
+      return ONE;
+    } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
+      return -ONE;
+    }
+  }
+}
+
 module.exports = {
   statuses,
 
@@ -168,27 +214,10 @@ module.exports = {
     return retval;
   }, // nodeChildren
 
-  /**
-   * Use this as the d3.partition sort comparator function. It will sort by
-   * subject or sample name in ascending order, case-insensitive.
-   *
-   * @param {Object} a - the first node to compare
-   * @param {Object} b - the second node to compare
-   * @returns {Integer} - positive integer if a > b, negative integer if
-   *  a < b, 0 if a === b
-   */
-  nameAscending(a, b) {
-    if (a && a.name && b && b.name) {
-      if (a.name.toLowerCase() > b.name.toLowerCase()) {
-        return ONE;
-      } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
-        return -ONE;
-      }
-    }
 
-    return 0;
-  }, // nameAscending
 
+  nodeSorter,
+  nameAscending,
   prepareHierarchyData,
   childrenize,
 }; // module.exports
