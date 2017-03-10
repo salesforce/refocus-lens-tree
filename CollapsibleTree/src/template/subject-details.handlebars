@@ -1,0 +1,25 @@
+<h3>{{wrapPath data.absolutePath}}</h3>
+
+{{#if data.tags}}
+<h4>{{heading.tags}}</h4>
+<div>
+  {{#each data.tags}}
+    <span class="tag"> {{this}} </span>
+  {{/each}}
+</div>
+{{/if}}
+
+<h4>{{heading.lastUpdated}}</h4>
+<p>{{data.updatedAt}}</p>
+
+<h4>{{heading.description}}</h4>
+<p>{{data.description}}</p>
+
+{{#if data.relatedLinks}}
+<h4>{{heading.relatedLinks}}</h4>
+<ul class="related-links">
+  {{#each data.relatedLinks}}
+    <li><a target="_blank"  href="{{url}}">{{name}}</a></li>
+  {{else}}{{/each}}
+</ul>
+{{/if}}

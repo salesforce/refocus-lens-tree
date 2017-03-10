@@ -1,0 +1,168 @@
+/**
+ * lens.css
+ *
+ * The stylesheet for the collapsible tree lens.
+ */
+html, body {
+}
+
+h1 {
+  display: none;
+}
+
+#lens {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.slds-spinner:before, .slds-spinner:after,
+.slds-spinner__dot-a:before, .slds-spinner__dot-b:before,
+.slds-spinner__dot-a:after, .slds-spinner__dot-b:after {
+    background-color: rgb(176, 196, 222);
+}
+
+#lens svg {
+  padding: 24px;
+  border-right: solid 1px #ddd;
+}
+
+#svg-tree {
+  box-sizing: border-box;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+}
+
+.node text {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 12px;
+}
+
+.link {
+  fill: none;
+  stroke: #ddd;
+}
+
+#detailsPanel {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  position: absolute;
+  font-size: 14px;
+  color: black;
+}
+
+#detailsPanel h3 {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+
+#detailsPanel h4 {
+  margin: .8em 0;
+  font-weight: bold;
+}
+
+#detailsPanel p {
+  margin: 2px 0;
+}
+
+.tag {
+  display: inline-block;
+  border: 2px gray solid;
+  border-radius: 10px;
+  padding: 0 8px;
+  margin: 2px 1px;
+  font-size: 12px;
+}
+
+.related-links {
+  list-style: none;
+  padding: 0;
+}
+
+.related-links li {
+  padding: 5px 0;
+}
+
+.related-links a {
+  text-decoration: none;
+  color: inherit;
+  padding: 2px;
+  border-radius: 3px;
+  border: thin solid gray;
+}
+
+ul.related-links a:hover {
+  background-color: #eee;
+}
+
+a.related-links {
+  display: block;
+  text-decoration: none;
+  padding: 1px 0;
+  color: inherit;
+}
+
+span.status {
+  padding: 0 1px;
+}
+
+.status-Critical {
+  background-color: rgb(252, 13, 27);
+}
+.status-Warning {
+  background-color: rgb(253, 153, 67);
+}
+.status-Info {
+  background-color: rgb(52, 144, 156);
+}
+.status-OK {
+  background-color: rgb(176, 196, 222);
+}
+.status-Invalid {
+  background-color: rgb(197, 197, 197);
+}
+.status-Timeout {
+  background-color: rgb(197, 197, 197);
+}
+
+span.small {
+  font-size: .8em;
+}
+
+#searchInput {
+  position: absolute;
+  font-size: 12px;
+}
+
+ol#searchResults {
+  position: absolute;
+  background: white;
+  z-index: 1;
+  box-shadow: 0px 2px 3px gray;
+  font-size: 12px;
+  overflow: auto;
+  list-style-type: none;
+  padding-left: 2px;
+}
+
+ol#searchResults.hidden {
+  display: none;
+}
+
+ol#searchResults.shown {
+  display: block;
+}
+

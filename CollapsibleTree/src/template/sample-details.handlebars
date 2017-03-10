@@ -1,0 +1,41 @@
+<h3>{{wrapPath data.name}}</h3>
+
+{{#if data.aspect.tags}}
+<h4>{{heading.tags}}</h4>
+<div>
+  {{#each data.aspect.tags}}
+    <span class="tag"> {{this}} </span>
+  {{/each}}
+</div>
+{{/if}}
+
+<h4>{{heading.lastUpdated}}</h4>
+<p>{{data.updatedAt}}</p>
+
+<h4>{{heading.status}}</h4>
+<p>
+  <span class="status status-{{data.status}}">&nbsp;</span>
+  <span>{{data.status}}</span>
+  <span class="small">since {{data.statusChangedAt}}</span>
+</p>
+
+<h4>{{heading.message}}</h4>
+<p>
+  {{data.messageCode}}
+  {{#if data.messageBody}}
+    {{#if data.messageCode}}:{{/if}}
+    {{multiline data.messageBody}}
+  {{/if}}
+</p>
+
+<h4>{{heading.description}}</h4>
+<p>{{data.aspect.description}}</p>
+
+{{#if data.relatedLinks}}
+<h4>{{heading.relatedLinks}}</h4>
+<ul class="related-links">
+  {{#each data.relatedLinks}}
+    <li><a target="_blank" href="{{url}}">{{name}}</a></li>
+  {{else}}{{/each}}
+</ul>
+{{/if}}

@@ -1,0 +1,13 @@
+{
+  "name": "CollapsibleTree",
+  "description": "A collapsible and searchable tree. NOT REALTIME--refresh the page for current status. Useful for browsing the hierarchy.",
+  "helpEmail": "igoldstein@salesforce.com",
+  "helpUrl": "https://github.com/salesforce/refocus-lens-tree",
+  "license": "TBD",
+  "version": "1.0.2",
+  "releaseNotes": {
+    "1.0.0": "Show details in sidebar on hover or click",
+    "1.0.1": "Workaround Firefox for (const in...) bug",
+    "1.0.2": "Loading animation"
+  }
+}
