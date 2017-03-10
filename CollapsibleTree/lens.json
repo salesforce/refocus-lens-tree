@@ -4,11 +4,12 @@
   "helpEmail": "igoldstein@salesforce.com",
   "helpUrl": "https://github.com/salesforce/refocus-lens-tree",
   "license": "TBD",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "releaseNotes": {
     "1.0.0": "Show details in sidebar on hover or click",
     "1.0.1": "Workaround Firefox for (const in...) bug",
     "1.0.2": "Loading animation",
-    "1.0.3": "Aspect rank"
+    "1.0.3": "Aspect rank",
+    "1.0.4": "Subject sortBy"
   }
 }
