@@ -93,7 +93,7 @@ function nodeSorter(a, b) {
   if (a.aspect && b.aspect) {
     return aspectSorter(a.aspect, b.aspect);
   } else {
-    return nameAscending(a, b);
+    return subjectSorter(a, b);
   }
 } // nodeSorter
 
@@ -116,6 +116,20 @@ function aspectSorter(a, b) {
   return ret;
 } // aspectSorter
 
+function subjectSorter(subject1, subject2) {
+  const string1 = subject1.sortBy || subject1.name;
+  const string2 = subject2.sortBy || subject2.name;
+  return ascending(string1, string2);
+} // subjectSorter
+
+function ascending(a, b) {
+  if (a.toLowerCase() > b.toLowerCase()) {
+    return ONE;
+  } else if (a.toLowerCase() < b.toLowerCase()) {
+    return -ONE;
+  }
+} // ascending
+
 /**
  * Use this as the d3.partition sort comparator function. It will sort by
  * subject or sample name in ascending order, case-insensitive.
@@ -127,13 +141,9 @@ function aspectSorter(a, b) {
  */
 function nameAscending(a, b) {
   if (a && a.name && b && b.name) {
-    if (a.name.toLowerCase() > b.name.toLowerCase()) {
-      return ONE;
-    } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
-      return -ONE;
-    }
+    ascending(a.name, b.name);
   }
-}
+} // nameAscending
 
 module.exports = {
   statuses,
