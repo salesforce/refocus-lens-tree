@@ -1,5 +1,7 @@
 # refocus-lens-tree
 
+Note: This repository is infrequently maintained.
+
 ## CollapsibleTree
 
 A collapsible and searchable tree. NOT REALTIME--refresh the page for current status. Useful for browsing the hierarchy.
